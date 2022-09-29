@@ -135,7 +135,7 @@ body {
 
 .fade-out {
     animation: fadeOut ease 1000ms;
-    -webkit-animation: fadeOut ease 21000ms;
+    -webkit-animation: fadeOut ease 1000ms;
     -moz-animation: fadeOut ease 1000ms;
     -o-animation: fadeOut ease 1000ms;
     -ms-animation: fadeOut ease 1000ms;
@@ -186,14 +186,132 @@ body {
     }
 }
 
-#key-container {
+.content-container {
     width: 90%;
     background: #fff;
     text-align: center;
     padding-top: 4vh;
+    min-height: 93vh;
 }
 
 .my-img {
     width: 100%;
     height: auto;
+}
+
+
+/* CARDS */
+
+.entry-card {
+    position: relative;
+    background-color: green;
+    width: 300px;
+    height: 300px;
+    transition: 0.8s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.entry-card-content {
+    width: 300px;
+    height: 300px;
+}
+
+.entry-card-content>div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding-top: 40%;
+    font-size: larger;
+}
+
+.flip {
+    transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+}
+
+.visible {
+    visibility: visible;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+
+/* СТРЕЛОЧКИ */
+
+.arrow-6 {
+    margin: 0;
+    display: inline-block;
+}
+
+.arrow-6 svg {
+    width: 100px;
+    height: auto;
+    margin: 0 2rem;
+    cursor: pointer;
+    overflow: visible;
+}
+
+.arrow-6 svg polygon,
+.arrow-6 svg path {
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+    fill: #939699;
+}
+
+.arrow-6 svg:hover polygon,
+.arrow-6 svg:hover path {
+    transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+    fill: #000;
+}
+
+.arrow-6 svg:hover .arrow-6-pl {
+    animation: arrow-6-anim 1s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+}
+
+.arrow-6 svg:hover .arrow-6-pl-fixed {
+    animation: arrow-6-fixed-anim 1s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+}
+
+@keyframes arrow-6-anim {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    5% {
+        transform: translateX(-0.1rem);
+    }
+    100% {
+        transform: translateX(1rem);
+        opacity: 0;
+    }
+}
+
+@keyframes arrow-6-fixed-anim {
+    5% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
 }
