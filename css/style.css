@@ -10,6 +10,7 @@ body {
     top: 0;
     right: 0;
     opacity: 1 !important;
+    z-index: 100 !important;
 }
 
 .lesson-hdr {
@@ -203,8 +204,8 @@ body {
 /* CARDS */
 
 .entry-card {
-    position: relative;
-    background-color: green;
+    /* position: relative; */
+    margin: 0 auto;
     width: 300px;
     height: 300px;
     transition: 0.8s;
@@ -218,11 +219,19 @@ body {
 }
 
 .entry-card-content>div {
-    position: absolute;
+    /* position: relative; */
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    padding-top: 40%;
-    font-size: larger;
+    font-size: 30px;
+    display: table;
+}
+
+.entry-card-content>div>p {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .flip {
@@ -235,21 +244,21 @@ body {
 }
 
 .hidden {
-    visibility: hidden;
+    visibility: collapse;
 }
 
 
 /* СТРЕЛОЧКИ */
 
 .arrow-6 {
-    margin: 0;
+    margin: 2% 0 0 0;
     display: inline-block;
 }
 
 .arrow-6 svg {
     width: 100px;
     height: auto;
-    margin: 0 2rem;
+    margin: 0;
     cursor: pointer;
     overflow: visible;
 }

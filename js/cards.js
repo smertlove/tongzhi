@@ -7,6 +7,24 @@ var card_rotated = false;
 
 var cache = new Cache(entries[getRandomInt(0, entries.length)], 10);
 
+var colors = [
+    "rgb(252, 38, 38)",
+    "rgb(252, 38, 217)",
+    "rgb(201, 61, 252)",
+    "rgb(125, 45, 252)",
+    "rgb(75, 145, 250)",
+    "rgb(75, 218, 250)",
+    "rgb(75, 250, 218)",
+    "rgb(75, 250, 177)",
+    "rgb(75, 250, 113)",
+    "rgb(151, 250, 75)",
+    "rgb(227, 250, 75)",
+    "rgb(250, 221, 75)",
+    "rgb(250, 180, 75)",
+    "rgb(250, 75, 75)"
+]
+
+
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
@@ -16,9 +34,11 @@ function getRandomInt(min, max) {
 function setData(elem) {
     let card_front = document.getElementById("entry-card-front");
     let card_back = document.getElementById("entry-card-back");
+    let card = document.getElementById("entry-card");
 
-    setTimeout(function() { card_front.innerText = elem.translation; }, 150);
-    setTimeout(function() { card_back.innerText = elem.hieroglyph; }, 350);
+    card.style.backgroundColor = colors[getRandomInt(0, colors.length)]
+    setTimeout(function() { card_front.innerHTML = '<p>' + elem.translation + '</p>'; }, 150);
+    setTimeout(function() { card_back.innerHTML = '<p>' + elem.hieroglyph; + '</p>'; }, 350);
 
 
 }
@@ -35,7 +55,6 @@ function _next() {
 
 
     setData(cache.getElem());
-    cache.pprint();
 }
 
 function _prev() {
@@ -44,11 +63,10 @@ function _prev() {
     }
     cache.lmovPtr();
     setData(cache.getElem());
-    cache.pprint();
 }
 
 function __change_visibility(elem1, elem2) {
-    setTimeout(function() { elem2.style.visibility = "hidden"; }, 150);
+    setTimeout(function() { elem2.style.visibility = "collapse"; }, 150);
     setTimeout(function() { elem1.style.visibility = "visible"; }, 350);
 }
 
