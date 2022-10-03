@@ -18,7 +18,7 @@
     <div class="container-fluid navbar-wrapper">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#" id="d1">同志</a>
+                <a class="navbar-brand" href="./index.html" id="d1">同志</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -34,9 +34,42 @@
     </div>
 
 
-    <div class="container-fluid content-container">
+    <div class="container-fluid content-container noselect" style="">
 
-        <p>временно с 15 по 19 урок</p>
+        <div class="cards__settings">
+
+            <p style="display: inline-block;">
+                Тренировать уроки с
+            </p>
+
+            <div class="dropdown" style="display: inline-block;">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-dark dropdown-toggle" id="lessonStartDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                      1
+                    </button>
+                    <ul class="dropdown-menu lesson-nav-menu" aria-labelledby="lessonStartDropdown" id="lessonStart">
+
+                    </ul>
+                </div>
+            </div>
+
+            <p style="display: inline-block;">по</p>
+
+            <div class="dropdown" style="display: inline-block;">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-dark dropdown-toggle" id="lessonFinishDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                      20
+                    </button>
+                    <ul class="dropdown-menu lesson-nav-menu" aria-labelledby="lessonStartDropdown" id="lessonFinish">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+
 
         <div class="entry-card" id="entry-card" align="center">
             <div class="entry-card-content" id="entry-card-content">
@@ -45,25 +78,19 @@
             </div>
         </div>
 
-        <div class="arrow-6" id="prev">
-            <svg width="18px" height="17px" viewBox="0 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <g transform="translate(8.500000, 8.500000) scale(-1, 1) translate(-8.500000, -8.500000)">
-                    <polygon class="arrow-6-pl" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
-                    <polygon class="arrow-6-pl-fixed" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
-                    <path d="M-1.48029737e-15,0.56157424 L-1.48029737e-15,16.1929159 L9.708,8.33860465 L-2.66453526e-15,0.56157424 L-1.48029737e-15,0.56157424 Z M1.33333333,3.30246869 L7.62533333,8.34246869 L1.33333333,13.4327013 L1.33333333,3.30246869 L1.33333333,3.30246869 Z"></path>
-                </g>
-            </svg>
-        </div>
-        <div class="arrow-6" id="next">
-            <svg width="18px" height="17px" viewBox="-1 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <g>
-                    <polygon class="arrow-6-pl" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
-                    <polygon class="arrow-6-pl-fixed" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
-                    <path d="M-4.58892184e-16,0.56157424 L-4.58892184e-16,16.1929159 L9.708,8.33860465 L-1.64313008e-15,0.56157424 L-4.58892184e-16,0.56157424 Z M1.33333333,3.30246869 L7.62533333,8.34246869 L1.33333333,13.4327013 L1.33333333,3.30246869 L1.33333333,3.30246869 Z"></path>
-                </g>
+        <!-- Стрелка влево -->
+        <div class="arrow" id="prev">
+            <svg class="arrow-left-2" viewBox="0 0 9 14">
+                <path class="svg-arrow" d="M6.660,8.922 L6.660,8.922 L2.350,13.408 L0.503,11.486 L4.813,7.000 L0.503,2.515 L2.350,0.592 L8.507,7.000 L6.660,8.922 Z" />
             </svg>
         </div>
 
+        <!-- Стрелка вправо -->
+        <div class="arrow" id="next">
+            <svg class="arrow-right-2" viewBox="0 0 9 14">
+                <path class="svg-arrow" d="M6.660,8.922 L6.660,8.922 L2.350,13.408 L0.503,11.486 L4.813,7.000 L0.503,2.515 L2.350,0.592 L8.507,7.000 L6.660,8.922 Z" />
+            </svg>
+        </div>
     </div>
 
 

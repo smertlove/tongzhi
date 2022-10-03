@@ -3,8 +3,11 @@ import { Cache } from "./Cache.js";
 import { entries } from "./entries.js";
 
 var card_rotated = false;
-var from = 15;
-var to = 20;
+
+var from = 1;
+var to = entries[entries.length - 1].lesson;
+
+var chosen_hiers = entries;
 
 var cache = new Cache(entries[getRandomInt(0, entries.length)], 10);
 
@@ -43,13 +46,8 @@ function setData(elem) {
 }
 
 function getRandomEntry(from, to) {
-    let temp = new Array();
-    entries.forEach(element => {
-        if (element.lesson >= from && element.lesson <= to) {
-            temp.push(element);
-        }
-    });
-    return temp[getRandomInt(0, temp.length)];
+
+    return chosen_hiers[getRandomInt(0, chosen_hiers.length)];
 }
 
 function _next() {
@@ -95,44 +93,80 @@ function rotate() {
 
 }
 
-// function __setFrom(i) {
-//     if (i > to) {
-//         alert("Пересмотрите взгляды на жизнь.")
-//     }
-//     from = i;
-// }
+function __setFrom(i) {
+    if (i > to) {
+        from = to;
+        to = i;
+    } else {
+        from = i;
+    }
 
-// function __setTo(i) {
-//     if (i < from) {
-//         alert("Пересмотрите взгляды на жизнь.")
-//     }
-//     to = i;
-// }
 
-// function __fillDropdowns() {
-//     let st = document.getElementById("lessonStart");
-//     let fn = document.getElementById("lessonFinish");
-//     for (let i = 0; i < to; i++) {
-//         let link1 = document.createElement('a');
-//         let link2 = document.createElement('a');
+    let temp = new Array();
+    entries.forEach(element => {
+        if (element.lesson >= from && element.lesson <= to) {
+            temp.push(element);
+        }
+    });
+    chosen_hiers = temp;
+    console.log(chosen_hiers);
 
-//         link1.text = i;
-//         link1.href = "#";
-//         link2.text = i;
-//         link2.href = "#";
+}
 
-//         link1.className = "dropdown-item";
-//         link2.className = "dropdown-item";
-//         link1.onclick = function() { __setFrom(i) };
-//         link2.onclick = function() { __setTo(i) };
-//         st.appendChild(link1);
-//         fn.appendChild(link2);
+function __setTo(i) {
+    if (i < from) {
+        to = from;
+        from = i;
+    } else {
+        to = i;
+    }
+    let temp = new Array();
+    entries.forEach(element => {
+        if (element.lesson >= from && element.lesson <= to) {
+            temp.push(element);
+        }
+    });
+    chosen_hiers = temp;
+    console.log(chosen_hiers);
+}
 
-//     }
-// }
+function __fillDropdowns() {
+    let st = document.getElementById("lessonStart");
+    let fn = document.getElementById("lessonFinish");
+    for (let i = 1; i <= to; i++) {
+        let li1 = document.createElement("li");
+        let li2 = document.createElement("li");
+
+
+        let link1 = document.createElement('a');
+        let link2 = document.createElement('a');
+
+        link1.text = i;
+        link1.href = "#";
+        link2.text = i;
+        link2.href = "#";
+
+        link1.className = "dropdown-item";
+        link2.className = "dropdown-item";
+        link1.onclick = function() {
+            document.getElementById("lessonStartDropdown").innerText = i;
+            __setFrom(i);
+        };
+        link2.onclick = function() {
+            document.getElementById("lessonFinishDropdown").innerText = i;
+            __setTo(i);
+        };
+
+        li1.appendChild(link1);
+        li2.appendChild(link2);
+        st.appendChild(li1);
+        fn.appendChild(li2);
+
+    }
+}
 
 setData(cache.getElem());
-// __fillDropdowns();
+__fillDropdowns();
 document.getElementById("next").onclick = _next;
 document.getElementById("prev").onclick = _prev;
 document.getElementById("entry-card").onclick = rotate;

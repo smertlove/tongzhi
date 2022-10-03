@@ -65,7 +65,7 @@ export class EntryMaker {
                 container.appendChild(lesson_hdr);
 
                 let lessonLink = document.createElement("li");
-                lessonLink.innerHTML = '<a  href="#' + cur_lesson + '"> Урок ' + cur_lesson + '</a>';
+                lessonLink.innerHTML = '<a class="dropdown-item" href="#' + cur_lesson + '"> Урок ' + cur_lesson + '</a>';
                 document.getElementById("lesson-nav-menu").appendChild(lessonLink);
             }
             this.make_entry(container, element.translation, element.hieroglyph + " [" + element.pinyin + "]");
