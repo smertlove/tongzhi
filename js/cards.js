@@ -175,7 +175,7 @@ document.addEventListener('keyup', event => {
     console.log(event.code);
     if (event.code === 'ArrowLeft') {
         _prev();
-    };
+    };;
     if (event.code === 'ArrowRight') {
         _next();
     };
