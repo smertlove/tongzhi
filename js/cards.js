@@ -170,3 +170,19 @@ __fillDropdowns();
 document.getElementById("next").onclick = _next;
 document.getElementById("prev").onclick = _prev;
 document.getElementById("entry-card").onclick = rotate;
+
+document.addEventListener('keyup', event => {
+    console.log(event.code);
+    if (event.code === 'ArrowLeft') {
+        _prev();
+    };
+    if (event.code === 'ArrowRight') {
+        _next();
+    };
+    if (event.code === 'Space') {
+        rotate();
+    };
+    if (event.code === 'Enter') {
+        rotate();
+    };
+});
